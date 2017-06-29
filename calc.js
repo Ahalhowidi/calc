@@ -1,44 +1,54 @@
 var x = 0,
     y= 0,
-    operator = ""
+    operator = "",
+    decimal = false;
 
 function point(){
+    if (!decimal) {
+      decimal = true;
       addNum(".")
+    }
   }
 function addNum(z){
+if (decimal) {
   x = x+z;
   document.getElementById('demo').innerHTML= x;
   console.log(x);
-
+}else {
+  x = x*10+z;
+  document.getElementById('demo').innerHTML= x;
+  console.log(x);
+}
 
 };
 
 function plus() {
-operator = "+";
   equal()
+operator = "+";
 console.log(operator);
 
 };
 
 function minus() {
-operator = "-"
   equal()
+operator = "-"
 console.log(operator);
 };
 
 function multiple() {
-  operator = "*"
-    equal()
+  equal()
+operator = "*"
 console.log(operator);
 };
 
 function divid() {
-operator = "/";
   equal()
+operator = "/";
 console.log(operator);
 };
 
 function equal(){
+  decimal = false;
   switch (operator) {
     case "+":
         y = Number(x) + Number(y);
@@ -108,4 +118,4 @@ resit()
 break;
 
 }
-}); 
+}, false);
